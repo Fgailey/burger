@@ -1,0 +1,21 @@
+<h1>Burger Joint</h1>
+<div class="row">
+
+<ul class="devoured_false col">
+  {{#each burger}}
+    {{#unless this.devoured}}
+        <li data-id="{{this.id}}">{{this.burger_name}}</li>
+    {{/unless}}
+  {{/each}}
+</ul>
+<ul class="devoured_true col">
+  {{#each burger}}
+    {{#if this.devoured}}
+        <li data-id="{{this.id}}">{{this.burger_name}}</li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+</div>
+<form></form>
+<button>Submit</button>
