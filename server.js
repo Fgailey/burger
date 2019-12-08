@@ -5,6 +5,7 @@ let express = require("express");
 let app = express();
 let PORT = process.env.PORT || 4040;
 let db = require("./models");
+let bodyParser = require('body-parser')
 
 
 app.use(express.static(__dirname + '/public'));
