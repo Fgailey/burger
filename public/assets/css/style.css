@@ -1,3 +1,13 @@
-body {
-    color: black;
+#main-body{
+    background-color: lightblue;
+}
+
+.fresh-burger {
+    list-style: none;
+    
+}
+
+.graphic-burger {
+    max-width: 50px;
+    height: auto;
 }

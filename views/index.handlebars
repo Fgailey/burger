@@ -1,21 +1,38 @@
 <h1>Burger Joint</h1>
 <div class="row">
 
-<ul class="devoured_false col">
-  {{#each burger}}
-    {{#unless this.devoured}}
-        <li data-id="{{this.id}}">{{this.burger_name}}</li>
-    {{/unless}}
-  {{/each}}
-</ul>
-<ul class="devoured_true col">
-  {{#each burger}}
-    {{#if this.devoured}}
-        <li data-id="{{this.id}}">{{this.burger_name}}</li>
-    {{/if}}
-  {{/each}}
-</ul>
+    <ul class="devoured_false col bg-dark mr-2">
+        {{#each burger}}
+        {{#unless this.devoured}}
+        <div class="each-burger bg-secondary d-flex m-1 fresh-burger" data-id="{{id}}">
+            <img src="./assets/img/burgers-graphic.jpg" class="graphic-burger" alt="burger graphic">
+            <li class="mr-auto text-white">{{this.burger_name}}</li>
+            <button type="button" class="btn-sm btn-success eat-burger">Eat</button>
+            <button type="button" class="btn-sm btn-danger remove-burger">Remove</button>
+        </div>
+        {{/unless}}
+        {{/each}}
+    </ul>
+    <ul class="devoured_true col bg-dark">
+        {{#each burger}}
+        {{#if this.devoured}}
+        <div class="each-burger bg-dark d-flex m-1" data-id="{{id}}">
+            <li class="mr-auto text-muted">{{this.burger_name}}</li>
+        </div>
+        {{/if}}
+        {{/each}}
+    </ul>
 
 </div>
-<form></form>
-<button>Submit</button>
+<div class="row">
+    <div class="col align-self-center">
+        <form>
+            <div class="form-group">
+                <label for="new-burger">Add a Burger</label>
+                <input type="text" class="form-control" id="new-burger" aria-describedby="text"
+                    placeholder="Enter new Burger">
+            </div>
+            <button type="button" class="btn-sm btn-warning submit-warning">Submit</button>
+        </form>
+    </div>
+</div>
