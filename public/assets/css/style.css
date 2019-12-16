@@ -1,5 +1,5 @@
 #main-body{
-    background-color: lightblue;
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-simple-fashion-burger-creative-poster-background-image_196210.jpg');
 }
 
 .fresh-burger {
@@ -10,4 +10,9 @@
 .graphic-burger {
     max-width: 50px;
     height: auto;
+}
+
+h1 {
+    color: ivory;
+    font-family: 'Allerta Stencil';
 }
