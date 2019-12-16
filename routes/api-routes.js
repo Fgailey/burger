@@ -19,25 +19,34 @@ module.exports = function(app) {
     });
   });
   app.post("/api/add", function(req, res) {
-    console.log('body'+req.body.burger_name);
-    db.Burger.create({
-      burger_name: req.body.burger_name,
-    })
-      .then(function(dbBurger) {
-        // res.json(dbBurger);
+    console.log('body'+JSON.stringify(req.body));
+    db.Burger.create(req.body)
+      .then(function() {
+        console.log('next')
         res.redirect('/')
       });
   });
-
-  app.put("/api/burger", function(req, res) {
-    db.Burger.update(req.body,
+  // Update the burger devour
+  app.put("/api/update/:id", function(req, res) {
+    db.Burger.update({devoured: 1},
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       })
       .then(function(dbBurger) {
         res.json(dbBurger);
+        console.log('update?')
       });
+  });
+  // Delete the burger
+  app.delete("/api/remove/:id", function (req, res) {
+    db.Burger.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (dbBurger) {
+      res.json(dbBurger);
+    });
   });
 };
